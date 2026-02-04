@@ -1,0 +1,28 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-toml
+      - id: check-yaml
+        args: [--allow-multiple-documents]
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: end-of-file-fixer
+
+  - repo: local
+    hooks:
+      - id: ty-check
+        name: ty (type check)
+        entry: uv run --frozen ty check
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
+        require_serial: true
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.0
+    hooks:
+      - id: ruff-check
+        args: [--config, ruff.toml]
+      - id: ruff-format
+        args: [--check, --config, ruff.toml]
