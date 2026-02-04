@@ -109,16 +109,19 @@ class LinkedinScraper(BaseScraper):
         if not responses.items:
             raise RuntimeError(f"No responses received for {search_url}")
 
-        return self._parse_job_postings(responses.items[0].content)
+        return self._parse_job_postings(
+            responses.items[0].content, search_params.job_limit
+        )
 
-    def _parse_job_postings(self, html_content: str) -> RawJobPostings:
+    def _parse_job_postings(self, html_content: str, job_limit: int) -> RawJobPostings:
         """Parse HTML content to extract job posting cards.
 
         Uses BeautifulSoup to find job card elements and extracts structured
-        data from each card. Limits results to first 20 postings.
+        data from each card. Limits results to the specified number of postings.
 
         Args:
             html_content: Raw HTML string from LinkedIn search results page.
+            job_limit: Maximum number of job postings to extract.
 
         Returns:
             RawJobPostings object containing parsed job postings. Returns
@@ -135,7 +138,7 @@ class LinkedinScraper(BaseScraper):
             posting
             for card in job_cards
             if (posting := self._extract_job_posting_from_card(card))
-        ][:20]
+        ][:job_limit]
 
         return RawJobPostings(items=job_postings)
 
