@@ -32,8 +32,8 @@ class ResumeExtractor:
             Runnable chain that accepts resume text and returns
             ExtractedResume object.
         """
-        system_prompt = load_prompt("neurojobs.prompts.resume", "system.md")
-        human_prompt = load_prompt("neurojobs.prompts.resume", "human.md")
+        system_prompt = load_prompt("neurojobs.prompts", "resume_system.md")
+        human_prompt = load_prompt("neurojobs.prompts", "resume_human.md")
 
         extraction_prompt = ChatPromptTemplate(
             [("system", system_prompt), ("human", human_prompt)]
