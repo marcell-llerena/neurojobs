@@ -42,7 +42,8 @@ class ScraperPipeline:
         4. Generates embeddings and upserts to vector store
 
         Args:
-            search_params: Search criteria including job title and location.
+            search_params: Search criteria including job title, location,
+                and maximum number of postings to scrape.
 
         Returns:
             ProcessedJobPostings object containing successfully ingested
