@@ -16,6 +16,12 @@ from neurojobs.tools import make_tools
 
 
 async def main() -> None:
+    """Initialize and run the NeuroJobs Telegram bot.
+
+    Sets up all required components including storage, vector store, pipelines,
+    agent graph, and Telegram application. Registers handlers and starts
+    polling for messages. Runs until interrupted.
+    """
     logger.info("Starting Telegram bot")
 
     settings = get_settings()
