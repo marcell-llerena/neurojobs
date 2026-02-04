@@ -19,7 +19,9 @@ def make_scrape_tools(scrape_pipeline: ScraperPipeline) -> list[BaseTool]:
     """
 
     @tool("scrape_jobs")
-    async def scrape_jobs(job_title: str, job_location: str) -> dict[str, Any]:
+    async def scrape_jobs(
+        job_title: str, job_location: str, job_limit: int = 10
+    ) -> dict[str, Any]:
         """Fetch and process job postings from external sources.
 
         Use this tool when the user wants to search for jobs or refresh
@@ -32,7 +34,8 @@ def make_scrape_tools(scrape_pipeline: ScraperPipeline) -> list[BaseTool]:
                 Scientist", "ML Engineer"). Must be non-empty.
             job_location: The geographic location for the job search
                 (e.g., "Remote", "New York, NY"). Must be non-empty.
-
+            job_limit: Maximum number of job postings to scrape. Must be
+                between 1 and 60. Defaults to 10.
         Returns:
             On success: {"status": "success", "num_job_postings": int}.
             On failure: {"status": "error", "next_step": "scrape_jobs",
@@ -40,7 +43,9 @@ def make_scrape_tools(scrape_pipeline: ScraperPipeline) -> list[BaseTool]:
             contacting support.
         """
         processed_job_postings = await scrape_pipeline.run(
-            JobSearchParams(job_title=job_title, job_location=job_location)
+            JobSearchParams(
+                job_title=job_title, job_location=job_location, job_limit=job_limit
+            )
         )
 
         if processed_job_postings is None:
