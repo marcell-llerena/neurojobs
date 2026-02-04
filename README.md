@@ -54,4 +54,25 @@ Right now, it focuses on the first critical step: **collecting your resume and t
    uv run scripts/run_telegram.py
    ```
 
-The bot will start polling for messages and is ready to interact with users on Telegram.
+   The bot will start polling for messages and is ready to interact with users on Telegram.
+
+3. **Upload your resume:**
+   - Open your Telegram bot conversation
+   - Send the `/upload` command
+   - The bot will prompt you to send your resume as a PDF document
+   - Upload your resume PDF file
+   - Wait for confirmation that your CV has been saved and processed
+
+4. **Search for jobs:**
+   - Send a message to the bot requesting job searches, for example:
+     - "Search jobs of Data Scientist at Remote"
+     - "Find Software Engineer positions in New York"
+     - "Look for Machine Learning Engineer jobs in San Francisco"
+   - The bot will scrape and store relevant job postings based on your criteria
+
+5. **Get personalized recommendations:**
+   - After uploading your resume and searching for jobs, you can ask for personalized matches:
+     - "What are the best jobs to fit with my resume profile?"
+     - "Show me job recommendations based on my resume"
+     - "What jobs match my skills?"
+   - The bot will analyze your resume and provide job recommendations ranked by relevance
