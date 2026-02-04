@@ -23,7 +23,7 @@ def make_match_jobs_tool(
     """
 
     @tool("match_jobs")
-    def match_jobs(last_days: int = 7, top_k: int = 10) -> dict[str, Any]:
+    def match_jobs(last_days: int = 7, top_k: int = 5) -> dict[str, Any]:
         """Retrieve job recommendations ranked by similarity to user's resume.
 
         Use this tool when the user wants to see matched jobs. Requires
@@ -34,7 +34,7 @@ def make_match_jobs_tool(
             last_days: Only consider jobs ingested in the last N days.
                 Defaults to 7.
             top_k: Maximum number of job recommendations to return,
-                ranked by similarity. Defaults to 10.
+                ranked by similarity. Defaults to 5.
 
         Returns:
             One of:
