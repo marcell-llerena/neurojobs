@@ -57,7 +57,7 @@ class GraphBuilder:
                 content=load_prompt("neurojobs.prompts", "scrape_jobs_system.md")
             ),
             "get_resume_status": SystemMessage(
-                content=load_prompt("neurojobs.prompts", "get_resume_status_system.md")
+                content=load_prompt("neurojobs.prompts", "resume_status_system.md")
             ),
             "match_jobs": SystemMessage(
                 content=load_prompt("neurojobs.prompts", "match_jobs_system.md")
