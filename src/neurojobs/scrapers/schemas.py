@@ -7,9 +7,9 @@ from pydantic import Field
 class JobSearchParams(BaseModel):
     """Search criteria for job posting queries.
 
-    Parameters used to construct search queries for job boards and
-    APIs. Represents user intent for job title and location filtering,
-    plus a limit on the maximum number of job postings to scrape.
+    Parameters used to construct search queries for job boards and APIs.
+    Represents user intent for job title, location, experience level,
+    and a limit on the maximum number of job postings to scrape.
     """
 
     job_title: str = Field(
@@ -19,6 +19,13 @@ class JobSearchParams(BaseModel):
     job_location: str = Field(
         default="United States",
         description="Location filter for the search (e.g. city, state, country).",
+    )
+    job_experience: str = Field(
+        default="4",
+        description=(
+            "Experience filter for the search (e.g. 1=Internship, 2=Entry, "
+            "3=Mid-Level, 4=Senior, 5=Director, 6=Executive)."
+        ),
     )
     job_limit: int = Field(
         default=10,
