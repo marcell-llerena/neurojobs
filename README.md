@@ -76,3 +76,22 @@ Right now, it focuses on the first critical step: **collecting your resume and t
      - "Show me job recommendations based on my resume"
      - "What jobs match my skills?"
    - The bot will analyze your resume and provide job recommendations ranked by relevance
+
+
+## Roadmap
+
+NeuroJobs is evolving from **resume ingestion** → **job discovery** → **matching** → **recommendations**.
+Below is a high-level roadmap of what’s already built and what’s coming next.
+
+### ✅ Done
+- Upload resume via Telegram (`/upload`)
+- Parse CV → clean data → structured profile
+- Job search by **title** and **location**
+- Match job postings against the user’s resume/profile (rank relevant fits)
+- Seniority / experience level support (user can specify it and use it as a search filter)
+
+### ⏳ Planned (Next)
+- More filters (keywords, stack/skills, company, salary range if available)
+- Multi-source scraping (pluggable scrapers per platform)
+- More sophisticated matching strategies (hybrid scoring: semantic similarity + structured rules)
+- Weighted scoring (skills, years of experience, seniority, location/remote, keywords)
