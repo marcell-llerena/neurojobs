@@ -257,8 +257,9 @@ class LinkedinScraper(BaseScraper):
     def _build_search_url(self, search_params: JobSearchParams) -> str:
         """Construct LinkedIn job search URL with query parameters.
 
-        Builds URL by encoding job title and location as query parameters
-        and appending to BASE_URL.
+        Builds URL by encoding job title, location, and experience level
+        as query parameters (keywords, location, f_E) and appending to
+        BASE_URL.
 
         Args:
             search_params: Search criteria to encode in URL.
@@ -269,6 +270,7 @@ class LinkedinScraper(BaseScraper):
         params = {
             "keywords": search_params.job_title,
             "location": search_params.job_location,
+            "f_E": search_params.job_experience,
         }
         query_params = urlencode(params)
         return f"{self.BASE_URL}?{query_params}"
