@@ -19,7 +19,6 @@ Right now, it focuses on the first critical step: **collecting your resume and t
 ### Prerequisites
 
 - Python 3.13 or higher
-- Docker and Docker Compose (for containerized deployment)
 - OpenAI API key
 - Telegram Bot Token (obtain from [@BotFather](https://t.me/botfather))
 
