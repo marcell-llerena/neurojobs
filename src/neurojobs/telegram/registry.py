@@ -1,8 +1,9 @@
-from neurojobs.telegram.handlers.chat import chat_handler
-from neurojobs.telegram.handlers.upload import upload_conv_handler
 from telegram.ext import Application
 from telegram.ext import MessageHandler
 from telegram.ext import filters
+
+from neurojobs.telegram.handlers.chat import chat_handler
+from neurojobs.telegram.handlers.upload import upload_conv_handler
 
 
 def register_handlers(application: Application) -> None:
