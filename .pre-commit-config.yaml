@@ -23,6 +23,6 @@ repos:
     rev: v0.15.0
     hooks:
       - id: ruff-check
-        args: [--config, ruff.toml]
+        args: [--config, ruff.toml, --show-fixes]
       - id: ruff-format
         args: [--check, --config, ruff.toml]
