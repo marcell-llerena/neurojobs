@@ -3,7 +3,6 @@ from collections.abc import Generator
 from langchain_core.messages import BaseMessage
 from langchain_core.messages import HumanMessage
 from loguru import logger
-
 from telegram import Update
 from telegram.constants import ChatAction
 from telegram.ext import ContextTypes
