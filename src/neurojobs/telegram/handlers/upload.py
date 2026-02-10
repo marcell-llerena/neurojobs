@@ -1,6 +1,4 @@
 from loguru import logger
-
-from neurojobs.config.paths import DEFAULT_CV_DIR
 from telegram import Update
 from telegram.constants import ChatAction
 from telegram.ext import CommandHandler
@@ -8,6 +6,8 @@ from telegram.ext import ContextTypes
 from telegram.ext import ConversationHandler
 from telegram.ext import MessageHandler
 from telegram.ext import filters
+
+from neurojobs.config.paths import DEFAULT_CV_DIR
 
 
 WAITING_FOR_CV = 1
